@@ -1,3 +1,7 @@
+import cadastroPage from "../support/page/cadastro-page"
+import loginPage from "../support/page/login-page"
+import { faker } from '@faker-js/faker'
+
 describe('Testes End To End do fluxo de cadastro e login', () => {
 
     /* 
@@ -19,10 +23,18 @@ describe('Testes End To End do fluxo de cadastro e login', () => {
 
     beforeEach(() => {
         // Configurações iniciais, se necessário
+        cadastroPage.visitarPaginaCadastro();
     });
 
 
     it('Deve fazer o cadastro e validar o login com o usuário cadastrado', () => {
         // Criar todo o fluxo aqui dentro deste único "it"
+        let nome = faker.person.fullName();
+        let email = faker.internet.email();
+        let telefone = faker.phone.number();
+        let senha = faker.internet.password();
+
+        cadastroPage.preencherCadastro(nome, email, telefone, senha, senha);
+        loginPage.preencherLogin(email, senha);
     });
 });
