@@ -35,6 +35,9 @@ describe('Testes End To End do fluxo de cadastro e login', () => {
         let senha = faker.internet.password();
 
         cadastroPage.preencherCadastro(nome, email, telefone, senha, senha);
+        cy.url().should('include', 'dashboard')
+
         loginPage.preencherLogin(email, senha);
+        cy.url().should('include', 'dashboard')
     });
 });

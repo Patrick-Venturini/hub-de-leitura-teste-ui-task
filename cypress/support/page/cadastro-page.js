@@ -21,7 +21,6 @@ class CadastroPage {
         this.campoConfirmarSenha().clear().type(confirmarSenha)
         this.checkTermos().check()
         this.botaoCriarConta().click()
-        cy.url().should('include', 'dashboard')
     }
 
 }

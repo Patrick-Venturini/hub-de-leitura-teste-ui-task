@@ -11,7 +11,6 @@ class LoginPage {
     preencherLogin(email, senha) {
         this.visitarLogin();
         cy.login(email, senha)
-        cy.url().should('include', 'dashboard')
     }
 }
 
